@@ -1,29 +1,38 @@
+#Some things that are common to both the encoder and decoder functions
 import string
 
 keyboard_characters = list(string.ascii_letters + string.digits + string.punctuation)
 length = len(keyboard_characters)
-
 print('Yo wassup welcome to caesar cipher program by Deva go try it yourself it looks cool right:)')
 
+#IF you know how the encoder works then decoder will be a piece of cake for you :)
 def encoder():
     key = int(input('Enter the key value for the encoding of the message: '))
     message = input('Enter the message to be encrypted: ')
     encrypted_msg = []
 
     for i in message:
+        
+        #For white spaces
         if i == ' ':
             encrypted_msg.append(' ')
-            continue
+            continue       
+        #For noirmal characters
         if i in keyboard_characters:
             index = (keyboard_characters.index(i) + key)%length
             encrypted_msg.append(keyboard_characters[index])
+        
+        #For emojis and other characters
         else:
             encrypted_msg.append(i)
+
+    #text formatting so that it looks good    
     encrypted_msg = "".join(encrypted_msg)
     print('\nThe encrypted message is: ' + encrypted_msg)
     print(f'Key used: {key}')
     print('--> Copy the message above and paste it into option 2 (Decode message) to decrypt it!\n')
 
+#Try to understand encoder firt the decoder will be a piece of cake i literally copy pasted and made necessary changes in 2 mins :)
 def decoder():
     key = int(input('Enter the key value which you used for encoding of the message: '))
     message = input('Enter the encrypted message: ')
@@ -32,15 +41,17 @@ def decoder():
     for i in message:
         if i == ' ':
             decrypted_msg.append(' ')
-            continue
+            con
         if i in keyboard_characters:
-            index = (keyboard_characters.index(i) - key)%length
+            index = (keyboard_characters.index(i) - key)%length 
+            #Just changed + to - and made some changes in variables names if you will see properly everthing else is same
             decrypted_msg.append(keyboard_characters[index])
         else:
             decrypted_msg.append(i)
     decrypted_msg = "".join(decrypted_msg)
     print('The decrypted message is: ' + decrypted_msg)
 
+#This is just a simple menu system :)
 while True:
     print('\n1. Encode message')
     print('2. Decode message')
