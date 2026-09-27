@@ -32,7 +32,7 @@ def encoder():
     print(f'Key used: {key}')
     print('--> Copy the message above and paste it into option 2 (Decode message) to decrypt it!\n')
 
-#Try to understand encoder firt the decoder will be a piece of cake i literally copy pasted and made necessary changes in 2 mins :)
+#Try to understand encoder first the decoder will be a piece of cake i literally copy pasted and made necessary changes in 2 mins :)
 def decoder():
     key = int(input('Enter the key value which you used for encoding of the message: '))
     message = input('Enter the encrypted message: ')
